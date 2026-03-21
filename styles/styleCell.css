@@ -1,147 +1,359 @@
-@media (max-width:1000px){
-    html{
+/* Tablets e celulares */
+@media (max-width: 1000px) {
+    html {
         overflow-x: hidden;
     }
 
     /* Header */
-    header{
-        height: 10vh;
+    header {
+        height: auto;
+        min-height: 56px;
+        padding: 0.75rem 0;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: max(1rem, 4vw);
     }
 
     #headerLogo {
-        height: 50%;
-        margin-left: 5vw;
+        height: 44px;
+        max-height: 8vh;
+        margin-left: max(1rem, 5vw);
     }
-    
-    header ul{
+
+    header ul {
         display: none;
     }
 
-    header #menuIcon{
+    header #menuIcon {
         color: white;
         display: flex !important;
-        position: fixed;
-        right: 4vw;
-        font-size:1.5rem !important;
+        position: relative;
+        right: 0;
+        font-size: 1.75rem !important;
+        padding: 0.5rem;
+        margin: -0.5rem;
+        cursor: pointer;
     }
 
-    #menu{
+    #menu {
         display: none;
+        align-items: stretch;
+        justify-content: center;
+        padding-top: 4rem;
     }
 
-
-    #menu #closeIcon{
+    #menu #closeIcon {
         color: white;
         font-size: 2rem;
         position: fixed !important;
-        top: 2vh;
-        right: 3vw;
-        z-index: 10000000000000000 !important;
+        top: max(1rem, 2vh);
+        right: max(1rem, 3vw);
+        z-index: 100001;
+        padding: 0.5rem;
+        cursor: pointer;
     }
 
-    
-    /* Page 2 */
-
-    main #page2{
-        flex-direction: column;
-        height: 100vh;
+    #menu ul {
+        height: auto;
+        min-height: 40vh;
+        padding: 0 max(1.5rem, 8vw);
+        justify-content: center;
+        gap: 0.5rem;
     }
 
-    main #page2 #imagemTime{
-        height: 40%;
+    #menu ul a li {
+        font-size: 1.15rem;
+        padding: 0.65rem 0;
     }
-    
-    main #page2 div{
+
+    /* Page 1 */
+    main #page1 {
+        padding-top: calc(56px + 4vh);
+        padding-left: max(0.75rem, 2vw);
+        padding-right: max(0.75rem, 2vw);
+        padding-bottom: 1.5rem;
+    }
+
+    main #page1 .video-frame {
         width: 100%;
+        max-width: min(100%, 1280px);
+    }
+
+    /* Page 2 */
+    main #page2 {
+        flex-direction: column;
+        height: auto;
+        min-height: unset;
+        margin-top: 0;
+        padding: 2rem max(1rem, 4vw) 2.5rem;
+        gap: 1.5rem;
+    }
+
+    main #page2 #imagemTime {
+        order: -1;
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        max-height: 40vh;
+        object-fit: contain;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    main #page2 div {
+        width: 100%;
+        padding: 0;
+        align-items: flex-start;
     }
 
     main #page2 div h3 {
-        font-size: 1.6rem;
+        font-size: clamp(1.35rem, 4.5vw, 1.75rem);
+        margin-bottom: 1rem;
     }
 
-    main #page2 div p{
-        font-size: 0.8rem;
-        margin-bottom: 5vh;
+    main #page2 div p {
+        font-size: clamp(0.95rem, 3.2vw, 1.1rem);
+        max-width: 100%;
+        margin-bottom: 0;
+        line-height: 1.55;
     }
 
     /* Page 3 */
-
-    main #page3{
-        height: 50vh;
+    main #page3 {
+        height: auto;
+        min-height: unset;
+        padding: 2.5rem max(1rem, 4vw) 3rem;
+        gap: 0;
     }
 
     main #page3 div {
-        justify-content: center;
-        align-items: center;
-        margin-top: 5vh;
+        width: 100%;
+        max-width: 20rem;
+        margin-top: 0;
+        margin-bottom: 2rem;
     }
 
-    main #page3 div p{
-        font-size: 0.8rem;
+    main #page3 div:last-child {
+        margin-bottom: 0;
     }
 
-    /* Page 4 */
+    main #page3 div p {
+        font-size: clamp(0.95rem, 3vw, 1.15rem);
+    }
 
-    .nome-accordion{
-        display: none;
+    main #page3 div h3 {
+        font-size: clamp(2.75rem, 10vw, 3.5rem);
+    }
+
+    /* Page 4 — cards empilhados (toque não tem hover) */
+    main #page4 {
+        margin-top: 0;
+        height: auto;
+        min-height: unset;
+        padding: 2rem max(1rem, 4vw) 3rem;
+    }
+
+    .accordion {
+        flex-direction: column;
+        width: 100%;
+        max-width: 28rem;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 0.75rem;
+    }
+
+    .img-accordion {
+        flex: none;
+        height: min(52vw, 220px);
+        max-height: 240px;
+        border-radius: 10px;
+        filter: brightness(0.88);
+        -webkit-filter: brightness(0.88);
     }
 
     .img-accordion:hover {
-        min-width: 100%;
+        flex: none;
+        filter: brightness(0.95);
+        -webkit-filter: brightness(0.95);
     }
 
-    .img-accordion:hover .nome-accordion{
-        display: flex;
+    .img-accordion:hover p {
+        transform: none;
+        color: rgb(30, 30, 30);
+        background-color: rgba(190, 190, 190, 0.9);
+    }
+
+    .nome-accordion {
+        display: block;
+        white-space: normal;
+        transform: translateY(0);
+        bottom: 2.35rem;
+        left: 0;
+        right: 0;
+        max-width: 100%;
+        font-size: clamp(0.75rem, 2.8vw, 0.95rem);
+        line-height: 1.25;
+        padding: 0.35rem 0.5rem;
+    }
+
+    .titulo-accordion {
+        display: block;
+        opacity: 1;
+        white-space: normal;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(0);
+        font-size: clamp(0.65rem, 2.4vw, 0.8rem);
+        line-height: 1.2;
+        padding: 0.35rem 0.5rem;
     }
 
     /* Page 5 */
-
-    main #page5 h2{
-        font-size: 1.4rem;
-        font-weight: 400;
-        text-align: center;
+    main #page5 {
+        height: auto;
+        min-height: unset;
+        padding: 6rem max(1rem, 4vw) 3rem;
     }
 
-    main #page5 #imgPrincipal{
-        height: 50%;
+    main #page5 h2 {
+        font-size: clamp(1.05rem, 3.8vw, 1.35rem);
+        font-weight: 500;
+        text-align: center;
+        line-height: 1.35;
+        padding: 0 0.5rem;
+    }
+
+    main #page5 #imgPrincipal {
+        width: 100%;
+        max-width: 22rem;
+        height: auto;
+        min-height: 8rem;
+        margin-top: 2rem;
+    }
+
+    main #page5 #imgPrincipal img {
+        width: 100%;
+        height: auto;
+        max-height: 28vh;
+        object-fit: contain;
+    }
+
+    main #page5 .imgCollection {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 1.75rem;
+        min-height: unset;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1.25rem 1rem;
+        padding: 0 0.5rem;
+    }
+
+    main #page5 .imgCollection a {
+        width: auto;
+        flex: 0 1 calc(50% - 1rem);
+        max-width: 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 3rem;
+    }
+
+    main #page5 .imgCollection a img {
+        max-height: 2.75rem;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
     }
 
     /* Page 6 */
-    main #page6 .list-img-m{
-        background-color: blue;
+    main #page6 {
+        height: auto;
+        min-height: unset;
+        padding: 2rem max(1rem, 4vw) 2.5rem;
+        overflow: visible;
+    }
+
+    main #page6 .list-img-m {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+        height: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
     }
 
     main #page6 .img-m-container {
-        background-color: red;
+        width: calc(50% - 0.5rem);
+        max-width: 200px;
+        flex: 1 1 calc(50% - 0.5rem);
     }
 
-    main #page6 .img-m{
-        width: 100vw;
+    main #page6 .img-m {
+        width: 100%;
+        border-radius: 8px;
     }
 
     /* Page 7 */
-
-    main #page7 h2{
-        font-size: 1.3rem;
-        font-weight: 200;
-    }
-
-    main #page7 .fileiraIcons{
-        width: 80%;
-    }
-
-    main #page7 .fileiraIcons a img{
-        min-width: 7vw;
-    }
-
-    main #page7 h3{
-        font-size: 0.8rem;
-        font-weight: 300;
+    main #page7 {
+        height: auto;
+        min-height: unset;
+        padding: 2.5rem max(1rem, 4vw) 2rem;
+        align-items: center;
         text-align: center;
     }
 
-    main #page7 p{
-        font-size: 0.7rem;
-        width: 80%;
+    main #page7 h2 {
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
+        font-weight: 600;
+        margin-bottom: 1.25rem;
+    }
+
+    main #page7 .fileiraIcons {
+        width: 100%;
+        max-width: 22rem;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        gap: 1rem 1.25rem;
+    }
+
+    main #page7 .fileiraIcons .contact-icon {
+        width: clamp(40px, 11vw, 48px);
+    }
+
+    main #page7 h3 {
+        font-size: clamp(0.75rem, 2.6vw, 0.95rem);
+        font-weight: 400;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+        padding: 0 0.25rem;
+    }
+
+    main #page7 p {
+        font-size: clamp(0.65rem, 2.2vw, 0.8rem);
+        width: 100%;
+        max-width: 36rem;
+        margin: 0 auto;
+        padding-bottom: 2rem;
+        line-height: 1.45;
+    }
+}
+
+/* Celulares estreitos: patrocinadores em coluna única */
+@media (max-width: 480px) {
+    main #page5 .imgCollection a {
+        flex: 1 1 100%;
+        max-width: 12rem;
+    }
+
+    main #page6 .img-m-container {
+        width: 100%;
+        max-width: 280px;
+        flex: 1 1 100%;
     }
 }

@@ -24,8 +24,9 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
     overflow-x: hidden;
     background-color: #141414;
 }
@@ -62,7 +63,8 @@ body {
 /* Header */
 header {
     height: 15vh;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     background-color: #212121;
     display: flex;
     flex-direction: row;
@@ -128,13 +130,16 @@ header ul .selected:hover {
 }
 
 #menu{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    min-height: 100dvh;
     background-color: #212121;
     z-index: 100000;
     position: fixed;
     top: 0;
-    display: none !important;
+    left: 0;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: start;
@@ -157,7 +162,8 @@ header ul .selected:hover {
 /* Page 1 */
 
 main #page1 {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     padding-top: 15vh;
     display: flex;
     justify-content: center;
@@ -166,6 +172,7 @@ main #page1 {
 
 main #page1 .video-frame {
     width: min(92vw, 1280px);
+    max-width: 100%;
     aspect-ratio: 16 / 9;
     border: 0;
 }
@@ -175,7 +182,8 @@ main #page1 .video-frame {
 main #page2 {
     margin-top: 5vh;
     height: 50vh;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -212,7 +220,8 @@ main #page2 div p {
 /* Page 3 */
 
 main #page3 {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 60vh;
     display: flex;
     justify-content: center;
@@ -250,7 +259,8 @@ main #page4 {
     margin-top: 10vh;
     background-color: #282828;
     height: 65vh;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     padding: 2vw;
     display: flex;
     justify-content: center;
@@ -258,7 +268,8 @@ main #page4 {
 }
 
 .accordion {
-    width: 90vw;
+    width: min(90vw, 1200px);
+    max-width: 100%;
     height: 50vh;
     display: flex;
     margin-left: 5vw;
@@ -336,29 +347,30 @@ main #page4 {
 }
 
 .img1 {
-    background-image: url(/axis-site/images/ian.png);
+    background-image: url(../images/ian.png);
 }
 
 .img2 {
-    background-image: url(/axis-site/images/matheus.png);
+    background-image: url(../images/matheus.png);
 }
 
 .img3 {
-    background-image: url(/axis-site/images/paulo.png);
+    background-image: url(../images/paulo.png);
 }
 
 .img4 {
-    background-image: url(/axis-site/images/emannuel.png);
+    background-image: url(../images/emannuel.png);
 }
 
 .img5 {
-    background-image: url(/axis-site/images/pedro.png);
+    background-image: url(../images/pedro.png);
 }
 
 /* Page 5 */
 
 main #page5 {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 80vh;
     display: flex;
     flex-direction: column;
@@ -397,7 +409,8 @@ main #page5 #imgPrincipal img:hover {
 }
 
 main #page5 .imgCollection {
-    width: 80vw;
+    width: min(80vw, 1200px);
+    max-width: 100%;
     margin-top: 5vh;
     min-height: 20vh;
     display: flex;
@@ -431,7 +444,8 @@ main #page5 .imgCollection a img:hover {
 /* Página 6 */
 
 main #page6 {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 50vh;
     display: flex;
     overflow: hidden;
@@ -476,7 +490,8 @@ main #page6 .img-m:hover {
 /* Página 7 / Footer */
 
 main #page7{
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 40vh;
     display: flex;
     flex-direction: column;
@@ -492,9 +507,25 @@ main #page7 h2{
 main #page7 .fileiraIcons{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem 1.25rem;
     width: 45%;
+    max-width: 100%;
     justify-content: space-around;
+    align-items: center;
     margin-bottom: 3vh;
+}
+
+main #page7 .fileiraIcons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main #page7 .fileiraIcons .contact-icon {
+    width: clamp(36px, 4vw, 52px);
+    height: auto;
+    display: block;
 }
 
 main #page7 h3{
